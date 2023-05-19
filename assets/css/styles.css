@@ -1,0 +1,36 @@
+/*Element Selector-body*/
+body{
+    /*There is no need to add margin or padding default by browser I want the full space */
+    margin:0;
+    padding:0;
+}
+/*Grid*/
+.grid-container{
+    display:grid; /*grid content*/
+    grid-template-columns: 260px 1fr 1fr 1fr;/*Specify the columns the grid have,First Column needs 260px and others have 1fr*/
+    grid-template-rows: 0.2fr 3fr;/*how many rows we need..Header row takes 0.2fr and rest rows take 3fr --hieght*/
+    grid-template-areas:"sidebar header header header" "sidebar main main main";/*Layout and how it should visualize*/
+    height:100vh;/*make the heigh to visible are of the web page 100% of view port  hieght of page*/
+
+}
+/*Header*/
+.header{
+    grid-area: header;
+    height:70px;
+    background-color: darkblue;
+
+}
+/*Side menu bar*/
+#sidebar{
+    grid-area: sidebar;
+    height:100%;
+    background-color: #797474;
+
+}
+/*Main content*/
+.main-container{
+    grid-area: main;
+    background-color: bisque;
+
+
+}
