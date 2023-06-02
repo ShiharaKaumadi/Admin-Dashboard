@@ -1,5 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
-/*Element Selector-body*/
+
+
+.rotate-180-deg {
+    transform: rotate(180deg);
+}
+
+hr {
+    margin: 5px 0;
+}
+
+.docs-table tbody i {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+}
+
+
+@media (max-height: 600px) {
+    ul.navbar-nav.side-nav > li > a {
+        height: 40px;
+        padding: 5px 15px;
+    }
+}
+
+#wrapper {
+    height: 100%;
+    padding-left: 0;
+}
+
+#page-wrapper {
+    height: 100%;
+    padding: 5px 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Nav Announcements */
+.alerts-heading {
+    font-size: 50px;
+    margin: 0;
+}
+
+.alerts-text {
+    margin: 0;
+}
+
 body{
     /*There is no need to add margin or padding default by browser I want the full space */
     margin:0;
@@ -10,9 +56,9 @@ body{
 }
 
 .material-icons-out-outLined{
-     vertical-align: middle;
-     line-height: 1px;
-     font-size: 35px;
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 35px;
 }
 /*Grid*/
 .grid-container{
@@ -27,14 +73,14 @@ body{
 .header{
     grid-area: header;
     height:50px;
-   /* background-color: #7dc99e;*/
+    /* background-color: #7dc99e;*/
     display:flex; /*Allows items to place left and some on right*/
     align-items:center;
     justify-content: space-between;
     padding:0 10px 0 10px;
     box-shadow: 0 6px 7px -3px rgba(71, 129, 100, 0.5);
 }
- /*We want to view menu-icon in small screen sizes so set display to none*/
+/*We want to view menu-icon in small screen sizes so set display to none*/
 .menu-icon{
     display:none ;
 }
@@ -93,6 +139,38 @@ body{
     z-index: 12 !important;
 }
 
+.container {
+    margin-top: 20px;
+}
+.add-button {
+    margin-bottom: 20px;
+}
+.search-bar {
+    margin-bottom: 20px;
+}
+.search-input {
+    border: 1px solid #c5c0c0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 5px;
+    width:450px;
+    align-items:self-end ;
+}
+.register-form, .edit-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 550px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #9bb1e7;
+    box-shadow: 0 0 10px rgba(206, 201, 201, 0.2);
+    z-index: 9999;
+    color:black;
+}
 /*Main content*/
 .main-container{
     grid-area: main;
@@ -107,78 +185,6 @@ body{
     display: grid;
     justify-content: space-between;
 }
-
-.main-cards{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap:10px;
-    margin:10px 0;
-
-}
-
-.card{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 25px;
-    border-radius:5px;
-    height:65px;
-}
-
-.card:first-child{
-    background-color: #a6b5ec;
-}
-
-.card:nth-child(2){
-    background-color: #80a5e8;
-}
-.card:nth-child(3){
-    background-color: #617fc9;
-}
-.card:nth-child(4){
-    background-color: #405480;
-}
-
-.card-inner{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.card-inner>.material-icons-out-outLined{
-    font-size: 25px;
-}
-
-.charts {
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
-    gap: 10px;
-    margin-top:20px;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.charts-card {
-    background-color: #e5dcdc;
-    margin-bottom: 5px;
-    padding: 25px;
-    box-sizing: border-box;
-    -webkit-column-break-inside: avoid;
-    border-radius: 5px;
-    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-    height:425px;
-}
-
-.chart-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ---------- MEDIA QUERIES ---------- */
-
-/* Medium <= 992px */
 
 @media screen and (max-width: 992px) {
     .grid-container {
@@ -210,7 +216,7 @@ body{
     }
 
     .sidebar {
-       display: none;
+        display: none;
     }
 
     .menu-icon{
@@ -221,6 +227,8 @@ body{
         display: inline;
     }
 }
+
+
 
 /* Small <= 768px */
 

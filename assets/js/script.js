@@ -58,17 +58,17 @@ var barChartOptions = {
     chart: {
         type: "bar",
         background: "transparent",
-        height: 350,
+        height: 250,
         toolbar: {
             show: false,
         },
     },
     colors: [
         "#6d7ca8",
-        "#9f7272",
-        "#68966a",
-        "#a98a73",
-        "#a57da9",
+        "#5994b9",
+        "#5272a2",
+        "#4d6ad9",
+        "#47419b",
     ],
     plotOptions: {
         bar: {
@@ -85,7 +85,7 @@ var barChartOptions = {
         opacity: 1,
     },
     grid: {
-        borderColor: "#55596e",
+        borderColor: "#656669",
         yaxis: {
             lines: {
                 show: true,
@@ -99,7 +99,7 @@ var barChartOptions = {
     },
     legend: {
         labels: {
-            colors: "#f5f7ff",
+            colors: "#656669",
         },
         show: true,
         position: "top",
@@ -123,7 +123,7 @@ var barChartOptions = {
         },
         axisBorder: {
             show: true,
-            color: "#55596e",
+            color: "#656669",
         },
         axisTicks: {
             show: true,
@@ -131,7 +131,7 @@ var barChartOptions = {
         },
         labels: {
             style: {
-                colors: "#f5f7ff",
+                colors: "#656669",
             },
         },
     },
@@ -139,7 +139,7 @@ var barChartOptions = {
         title: {
             text: "Income",
             style: {
-                color:  "#f5f7ff",
+                color:  "#656669",
             },
         },
         axisBorder: {
@@ -152,7 +152,7 @@ var barChartOptions = {
         },
         labels: {
             style: {
-                colors: "#f5f7ff",
+                colors: "#656669",
             },
         },
     }
@@ -174,13 +174,13 @@ var areaChartOptions = {
     chart: {
         type: "area",
         background: "transparent",
-        height: 350,
+        height: 250,
         stacked: false,
         toolbar: {
             show: false,
         },
     },
-    colors: ["#4b9370", "#935353"],
+    colors: ["#819cc7", "#123c85"],
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug","Sep","Oct","Nov","Dec"],
     dataLabels: {
         enabled: false,
@@ -196,7 +196,7 @@ var areaChartOptions = {
         type: "gradient",
     },
     grid: {
-        borderColor: "#55596e",
+        borderColor: "#656669",
         yaxis: {
             lines: {
                 show: true,
@@ -210,7 +210,7 @@ var areaChartOptions = {
     },
     legend: {
         labels: {
-            colors: "#f5f7ff",
+            colors: "#656669",
         },
         show: true,
         position: "top",
@@ -235,7 +235,7 @@ var areaChartOptions = {
         labels: {
             offsetY: 5,
             style: {
-                colors: "#f5f7ff",
+                colors: "#656669",
             },
         },
     },
@@ -245,12 +245,12 @@ var areaChartOptions = {
                 title: {
                     text: "Purchase Orders",
                     style: {
-                        color: "#f5f7ff",
+                        color: "#656669",
                     },
                 },
                 labels: {
                     style: {
-                        colors: ["#f5f7ff"],
+                        colors: ["#656669"],
                     },
                 },
             },
@@ -259,12 +259,12 @@ var areaChartOptions = {
                 title: {
                     text: "Sales Orders",
                     style: {
-                        color:  "#f5f7ff",
+                        color:  "#656669",
                     },
                 },
                 labels: {
                     style: {
-                        colors: ["#f5f7ff"],
+                        colors: ["#656669"],
                     },
                 },
             },
