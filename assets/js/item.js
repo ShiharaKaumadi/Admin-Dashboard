@@ -49,11 +49,11 @@ function resetFormFields() {
 function addEntryToTable(entry) {
     const newRow = dataTable.insertRow();
     newRow.innerHTML = `
-                <td>${entry.name}</td>
-                <td>${entry.email}</td>
-                <td>${entry.phone}</td>
-                <td>${entry.address}</td>
-                <td>${entry.salary}</td>
+                <td>${entry.itemCode}</td>
+                <td>${entry.description}</td>
+                <td>${entry.qtyOnHand}</td>
+                <td>${entry.unitPrice}</td>
+              
                 <td>
                     <button class="edit-btn">Edit</button>
                     <button class="delete-btn">Delete</button>
@@ -76,27 +76,27 @@ function addEntryToTable(entry) {
 
 // Populate the edit form with entry data
 function populateEditForm(entry) {
-    document.getElementById('editNameInput').value = entry.name;
-    document.getElementById('editEmailInput').value = entry.email;
-    document.getElementById('editPhoneInput').value = entry.phone;
-    document.getElementById('editAddressInput').value = entry.address;
-    document.getElementById('editSalaryInput').value = entry.salary;
+    document.getElementById('editItemCodeInput').value = entry.itemCode;
+    document.getElementById('editDescriptionInput').value = entry.description;
+    document.getElementById('editQtyOnHandInput').value = entry.qtyOnHand;
+    document.getElementById('editUnitPriceInput').value = entry.unitPrice;
+
 }
 
 // Add a new entry
 function addEntry() {
-    const name = document.getElementById('nameInput').value;
-    const email = document.getElementById('emailInput').value;
-    const phone = document.getElementById('phoneInput').value;
-    const address = document.getElementById('addressInput').value;
-    const salary = document.getElementById('salaryInput').value;
+    const itemCode = document.getElementById('itemCodeInput').value;
+    const description = document.getElementById('descriptionInput').value;
+    const qtyOnHand = document.getElementById('qtyOnHandInput').value;
+    const unitPrice = document.getElementById('unitPriceInput').value;
+
 
     const entry = {
-        name: name,
-        email: email,
-        phone: phone,
-        address: address,
-        salary: salary
+        itemCode: itemCode,
+        description: description,
+        qtyOnHand: qtyOnHand,
+        unitPrice: unitPrice,
+
     };
 
     tableData.push(entry);
@@ -107,18 +107,17 @@ function addEntry() {
 
 // Save the updated entry
 function saveEntry() {
-    const name = document.getElementById('editNameInput').value;
-    const email = document.getElementById('editEmailInput').value;
-    const phone = document.getElementById('editPhoneInput').value;
-    const address = document.getElementById('editAddressInput').value;
-    const salary = document.getElementById('editSalaryInput').value;
+    const itemCode = document.getElementById('editItemCodeInput').value;
+    const description = document.getElementById('editDescriptionInput').value;
+    const qtyOnHand = document.getElementById('editQtyOnHandInput').value;
+    const unitPrice = document.getElementById('editUnitPriceInput').value;
+
 
     const updatedEntry = {
-        name: name,
-        email: email,
-        phone: phone,
-        address: address,
-        salary: salary
+        itemCode: itemCode,
+        description: description,
+        qtyOnHand: qtyOnHand,
+        unitPrice: unitPrice,
     };
 
     const rowIndex = getSelectedRowIndex();
@@ -152,11 +151,11 @@ function updateTableRow(rowIndex, entry) {
     const row = dataTable.rows[rowIndex + 1];
     if (row) {
         row.innerHTML = `
-                    <td>${entry.name}</td>
-                    <td>${entry.email}</td>
-                    <td>${entry.phone}</td>
-                    <td>${entry.address}</td>
-                    <td>${entry.salary}</td>
+                    <td>${entry.itemCode}</td>
+                    <td>${entry.description}</td>
+                    <td>${entry.qtyOnHand}</td>
+                    <td>${entry.unitPrice}</td>
+                   
                     <td>
                         <button class="edit-btn">Edit</button>
                         <button class="delete-btn">Delete</button>
@@ -186,11 +185,11 @@ function deleteTableRow(rowIndex) {
 // Search for entries based on search text
 function searchEntries(searchText) {
     const filteredData = tableData.filter(entry =>
-        entry.name.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.email.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.phone.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.address.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.salary.toLowerCase().includes(searchText.toLowerCase())
+        entry.itemCode.toLowerCase().includes(searchText.toLowerCase()) ||
+        entry.description.toLowerCase().includes(searchText.toLowerCase()) ||
+        entry.qtyOnHand.toLowerCase().includes(searchText.toLowerCase()) ||
+        entry.unitPrice.toLowerCase().includes(searchText.toLowerCase())
+
     );
 
     renderTable(filteredData);
@@ -201,22 +200,21 @@ function renderTable(data) {
     dataTable.innerHTML = `
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Salary</th>
+                        <th>Item Code</th>
+                        <th>Description</th>
+                        <th>Qty On Hand</th>
+                        <th>Unit Price</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     ${data.map(entry => `
                         <tr>
-                            <td>${entry.name}</td>
-                            <td>${entry.email}</td>
-                            <td>${entry.phone}</td>
-                            <td>${entry.address}</td>
-                            <td>${entry.salary}</td>
+                            <td>${entry.itemCode}</td>
+                            <td>${entry.description}</td>
+                            <td>${entry.qtyOnHand}</td>
+                            <td>${entry.unitPrice}</td>
+                           
                             <td>
                                 <button class="edit-btn">Edit</button>
                                 <button class="delete-btn">Delete</button>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,10 +74,10 @@
     <!--End Side bar -->
     <main class="main-container">
         <div class="main-title">
-            <h2>CUSTOMER</h2>
+            <h2>ITEM</h2>
         </div>
         <div class="container">
-            <h2>Customer Table</h2>
+            <h2>Item Table</h2>
             <div class="add-button">
                 <button id="addBtn" class="btn btn-primary">Add New Entry</button>
             </div>
@@ -92,12 +92,10 @@
             <table id="dataTable" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Salary</th>
-                    <th>Actions</th>
+                    <th>Item Code</th>
+                    <th>Description</th>
+                    <th>Qty On Hand</th>
+                    <th>Unit price</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -107,28 +105,25 @@
         </div>
 
         <div id="registerForm" class="register-form">
-            <h3>Register Customer</h3>
+            <h3>Add New Item</h3>
             <form id="entryForm">
                 <div class="mb-3">
-                    <label for="nameInput" class="form-label">Name</label>
-                    <input id="nameInput" type="text" class="form-control" required>
+                    <label for="itemCodeInput" class="form-label">Item Code</label>
+                    <input id="itemCodeInput" type="text" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="emailInput" class="form-label">Email</label>
-                    <input id="emailInput" type="email" class="form-control" required>
+                    <label for="descriptionInput" class="form-label">Description</label>
+                    <input id="descriptionInput" type="email" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="phoneInput" class="form-label">Phone</label>
-                    <input id="phoneInput" type="tel" class="form-control" required>
+                    <label for="qtyOnHandInput" class="form-label">Qty On Hand</label>
+                    <input id="qtyOnHandInput" type="tel" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="addressInput" class="form-label">Address</label>
-                    <input id="addressInput" type="tel" class="form-control" required>
+                    <label for="unitPriceInput" class="form-label">Unit Price</label>
+                    <input id="unitPriceInput" type="tel" class="form-control" required>
                 </div>
-                <div class="mb-3">
-                    <label for="salaryInput" class="form-label">Salary</label>
-                    <input id="salaryInput" type="text" class="form-control" required>
-                </div>
+
                 <div class="d-flex justify-content-between">
                     <button id="saveBtn" class="btn btn-primary">Save</button>
                     <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
@@ -140,24 +135,20 @@
             <h3>Edit Entry</h3>
             <form id="editEntryForm">
                 <div class="mb-3">
-                    <label for="editNameInput" class="form-label">Name</label>
-                    <input id="editNameInput" type="text" class="form-control" required>
+                    <label for="editItemCodeInput" class="form-label">Item Code</label>
+                    <input id="editItemCodeInput" type="text" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="editEmailInput" class="form-label">Email</label>
-                    <input id="editEmailInput" type="email" class="form-control" required>
+                    <label for="editDescriptionInput" class="form-label">Description</label>
+                    <input id="editDescriptionInput" type="email" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="editPhoneInput" class="form-label">Phone</label>
-                    <input id="editPhoneInput" type="tel" class="form-control" required>
+                    <label for="editQtyOnHandInput" class="form-label">Qty On Hand</label>
+                    <input id="editQtyOnHandInput" type="tel" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="editAddressInput" class="form-label">Address</label>
-                    <input id="editAddressInput" type="tel" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="editSalaryInput" class="form-label">Salary</label>
-                    <input id="editSalaryInput" type="text" class="form-control" required>
+                    <label for="editUnitPriceInput" class="form-label">Unit Price</label>
+                    <input id="editUnitPriceInput" type="tel" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-between">
                     <button id="editSaveBtn" class="btn btn-primary">Save</button>
@@ -168,10 +159,6 @@
     </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<script src="assets/js/customer.js"></script>
+<script src="assets/js/item.js"></script>
 </body>
 </html>
-
-
-
-
