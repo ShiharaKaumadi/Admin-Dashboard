@@ -1,5 +1,5 @@
 // Get table and form elements
-const dataTable = document.getElementById('dataTable');
+const orderDataTable = document.getElementById('orderDataTable');
 const entryForm = document.getElementById('entryForm');
 const editEntryForm = document.getElementById('editEntryForm');
 const registerForm = document.getElementById('registerForm');
@@ -15,7 +15,7 @@ const searchBtn = document.getElementById('searchBtn');
 const saveTableBtn = document.getElementById('saveBtn');
 
 // Initialize the table data array
-let tableData = [];
+let orderTableData = [];
 
 // Show the register form
 function showRegisterForm() {
@@ -47,7 +47,7 @@ function resetFormFields() {
 
 // Add a new entry to the table
 function addEntryToTable(entry) {
-    const newRow = dataTable.insertRow();
+    const newRow = orderDataTable.insertRow();
     newRow.innerHTML = `
                 <td>${entry.orderId}</td>
                 <td>${entry.customerId}</td>
@@ -99,7 +99,7 @@ function addEntry() {
 
     };
 
-    tableData.push(entry);
+    orderTableData.push(entry);
     addEntryToTable(entry);
     hideRegisterForm();
     saveDataToLocalStorage();
@@ -122,7 +122,7 @@ function saveEntry() {
 
     const rowIndex = getSelectedRowIndex();
     if (rowIndex !== -1) {
-        tableData[rowIndex] = updatedEntry;
+        orderTableData[rowIndex] = updatedEntry;
         updateTableRow(rowIndex, updatedEntry);
         hideEditForm();
         saveDataToLocalStorage();
@@ -131,9 +131,9 @@ function saveEntry() {
 
 // Delete an entry
 function deleteEntry(entry) {
-    const rowIndex = tableData.indexOf(entry);
+    const rowIndex = orderTableData.indexOf(entry);
     if (rowIndex !== -1) {
-        tableData.splice(rowIndex, 1);
+        orderTableData.splice(rowIndex, 1);
         deleteTableRow(rowIndex);
         saveDataToLocalStorage();
     }
@@ -141,14 +141,14 @@ function deleteEntry(entry) {
 
 // Get the selected row index
 function getSelectedRowIndex() {
-    const rows = Array.from(dataTable.getElementsByTagName('tr'));
+    const rows = Array.from(orderDataTable.getElementsByTagName('tr'));
     const selectedRow = rows.find(row => row.classList.contains('selected'));
     return selectedRow ? selectedRow.rowIndex - 1 : -1;
 }
 
 // Update the table row with updated entry data
 function updateTableRow(rowIndex, entry) {
-    const row = dataTable.rows[rowIndex + 1];
+    const row = orderDataTable.rows[rowIndex + 1];
     if (row) {
         row.innerHTML = `
                     <td>${entry.orderId}</td>
@@ -179,12 +179,12 @@ function updateTableRow(rowIndex, entry) {
 
 // Delete the table row
 function deleteTableRow(rowIndex) {
-    dataTable.deleteRow(rowIndex + 1);
+    orderDataTable.deleteRow(rowIndex + 1);
 }
 
 // Search for entries based on search text
 function searchEntries(searchText) {
-    const filteredData = tableData.filter(entry =>
+    const filteredData = orderTableData.filter(entry =>
         entry.orderId.toLowerCase().includes(searchText.toLowerCase()) ||
         entry.customerId.toLowerCase().includes(searchText.toLowerCase()) ||
         entry.date.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -197,7 +197,7 @@ function searchEntries(searchText) {
 
 // Render the table with data
 function renderTable(data) {
-    dataTable.innerHTML = `
+    orderDataTable.innerHTML = `
                 <thead>
                     <tr>
                         <th>Order ID</th>
@@ -224,8 +224,8 @@ function renderTable(data) {
                 </tbody>
             `;
 
-    const editBtns = dataTable.getElementsByClassName('edit-btn');
-    const deleteBtns = dataTable.getElementsByClassName('delete-btn');
+    const editBtns = orderDataTable.getElementsByClassName('edit-btn');
+    const deleteBtns = orderDataTable.getElementsByClassName('delete-btn');
 
     Array.from(editBtns).forEach((editBtn, index) => {
         editBtn.addEventListener('click', function() {
@@ -245,21 +245,21 @@ function renderTable(data) {
 
 // Save table data to local storage
 function saveDataToLocalStorage() {
-    localStorage.setItem('tableData', JSON.stringify(tableData));
+    localStorage.setItem('tableData', JSON.stringify(orderTableData));
 }
 
 // Load table data from local storage
 function loadDataFromLocalStorage() {
-    const data = localStorage.getItem('tableData');
+    const data = localStorage.getItem('orderTableData');
     if (data) {
-        tableData = JSON.parse(data);
-        renderTable(tableData);
+        orderTableData = JSON.parse(data);
+        renderTable(orderTableData);
     }
 }
 
 // Clear table data from local storage
 function clearLocalStorage() {
-    localStorage.removeItem('tableData');
+    localStorage.removeItem('orderTableData');
 }
 
 // Event listeners
