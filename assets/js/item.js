@@ -1,21 +1,21 @@
 // Get table and form elements
-const itemDataTable = document.getElementById('itemDataTable');
-const entryForm = document.getElementById('entryForm');
-const editEntryForm = document.getElementById('editEntryForm');
-const registerForm = document.getElementById('registerForm');
-const editForm = document.getElementById('editForm');
-const addBtn = document.getElementById('addBtn');
-const saveBtn = document.getElementById('saveBtn');
-const cancelBtn = document.getElementById('cancelBtn');
-const editSaveBtn = document.getElementById('editSaveBtn');
-const editCancelBtn = document.getElementById('editCancelBtn');
-const reloadBtn = document.getElementById('reloadBtn');
-const searchBar = document.getElementById('searchBar');
-const searchBtn = document.getElementById('searchBtn');
-const saveTableBtn = document.getElementById('saveTableBtn');
+const itemDataTable = document.getElementById('data-item-Table');
+const entryForm = document.getElementById('entry-item-Form');
+const editEntryForm = document.getElementById('edit-item-EntryForm');
+const registerForm = document.getElementById('register-item-Form');
+const editForm = document.getElementById('edit-item-Form');
+const addBtn = document.getElementById('add-item-button');
+const saveBtn = document.getElementById('save-item-Btn');
+const cancelBtn = document.getElementById('cancel-item-Btn');
+const editSaveBtn = document.getElementById('edit-item-SaveBt');
+const editCancelBtn = document.getElementById('edit-item-CancelBtn');
+const reloadBtn = document.getElementById('reload-item-Btn');
+const searchBar = document.getElementById('search-item-Bar');
+const searchBtn = document.getElementById('search-item-Btn');
+/*const saveTableBtn = document.getElementById('saveBtn');*/
 
 // Initialize the table data array
-let tableData = [];
+let itemTableData = [];
 
 // Show the register form
 function showRegisterForm() {
@@ -47,7 +47,7 @@ function resetFormFields() {
 
 // Add a new entry to the table
 function addEntryToTable(entry) {
-    const newRow = dataTable.insertRow();
+    const newRow = itemDataTable.insertRow();
     newRow.innerHTML = `
                 <td>${entry.itemCode}</td>
                 <td>${entry.description}</td>
@@ -55,18 +55,18 @@ function addEntryToTable(entry) {
                 <td>${entry.unitPrice}</td>
               
                 <td>
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button>
+                    <button class="edit-item-btn">Edit</button>
+                    <button class="delete-item-btn">Delete</button>
                 </td>
             `;
 
-    const editBtn = newRow.querySelector('.edit-btn');
+    const editBtn = newRow.querySelector('.edit-item-btn');
     editBtn.addEventListener('click', function() {
         showEditForm();
         populateEditForm(entry);
     });
 
-    const deleteBtn = newRow.querySelector('.delete-btn');
+    const deleteBtn = newRow.querySelector('.delete-item-btn');
     deleteBtn.addEventListener('click', function() {
         if (confirm('Are you sure you want to delete this record?')) {
             deleteEntry(entry);
@@ -99,7 +99,7 @@ function addEntry() {
 
     };
 
-    tableData.push(entry);
+    itemTableData.push(entry);
     addEntryToTable(entry);
     hideRegisterForm();
     saveDataToLocalStorage();
@@ -122,7 +122,7 @@ function saveEntry() {
 
     const rowIndex = getSelectedRowIndex();
     if (rowIndex !== -1) {
-        tableData[rowIndex] = updatedEntry;
+        itemTableData[rowIndex] = updatedEntry;
         updateTableRow(rowIndex, updatedEntry);
         hideEditForm();
         saveDataToLocalStorage();
@@ -131,9 +131,9 @@ function saveEntry() {
 
 // Delete an entry
 function deleteEntry(entry) {
-    const rowIndex = tableData.indexOf(entry);
+    const rowIndex = itemTableData.indexOf(entry);
     if (rowIndex !== -1) {
-        tableData.splice(rowIndex, 1);
+        itemTableData.splice(rowIndex, 1);
         deleteTableRow(rowIndex);
         saveDataToLocalStorage();
     }
@@ -141,14 +141,14 @@ function deleteEntry(entry) {
 
 // Get the selected row index
 function getSelectedRowIndex() {
-    const rows = Array.from(dataTable.getElementsByTagName('tr'));
+    const rows = Array.from(itemDataTable.getElementsByTagName('tr'));
     const selectedRow = rows.find(row => row.classList.contains('selected'));
     return selectedRow ? selectedRow.rowIndex - 1 : -1;
 }
 
 // Update the table row with updated entry data
 function updateTableRow(rowIndex, entry) {
-    const row = dataTable.rows[rowIndex + 1];
+    const row = itemDataTable.rows[rowIndex + 1];
     if (row) {
         row.innerHTML = `
                     <td>${entry.itemCode}</td>
@@ -157,18 +157,18 @@ function updateTableRow(rowIndex, entry) {
                     <td>${entry.unitPrice}</td>
                    
                     <td>
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
+                        <button class="edit-item-btn">Edit</button>
+                        <button class="delete-item-btn">Delete</button>
                     </td>
                 `;
 
-        const editBtn = row.querySelector('.edit-btn');
+        const editBtn = row.querySelector('#edit-item-SaveBtn');
         editBtn.addEventListener('click', function() {
             showEditForm();
             populateEditForm(entry);
         });
 
-        const deleteBtn = row.querySelector('.delete-btn');
+        const deleteBtn = row.querySelector('#edit-item-CancelBtn');
         deleteBtn.addEventListener('click', function() {
             if (confirm('Are you sure you want to delete this record?')) {
                 deleteEntry(entry);
@@ -179,12 +179,12 @@ function updateTableRow(rowIndex, entry) {
 
 // Delete the table row
 function deleteTableRow(rowIndex) {
-   dataTable.deleteRow(rowIndex + 1);
+    itemTableData.deleteRow(rowIndex + 1);
 }
 
 // Search for entries based on search text
 function searchEntries(searchText) {
-    const filteredData = tableData.filter(entry =>
+    const filteredData = itemTableData.filter(entry =>
         entry.itemCode.toLowerCase().includes(searchText.toLowerCase()) ||
         entry.description.toLowerCase().includes(searchText.toLowerCase()) ||
         entry.qtyOnHand.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -197,7 +197,7 @@ function searchEntries(searchText) {
 
 // Render the table with data
 function renderTable(data) {
-    dataTable.innerHTML = `
+    itemDataTable.innerHTML = `
                 <thead>
                     <tr>
                         <th>Item Code</th>
@@ -216,16 +216,16 @@ function renderTable(data) {
                             <td>${entry.unitPrice}</td>
                            
                             <td>
-                                <button class="edit-btn">Edit</button>
-                                <button class="delete-btn">Delete</button>
+                                <button class="edit-item-btn">Edit</button>
+                                <button class="delete-item-btn">Delete</button>
                             </td>
                         </tr>
                     `).join('')}
                 </tbody>
             `;
 
-    const editBtns = dataTable.getElementsByClassName('edit-btn');
-    const deleteBtns = dataTable.getElementsByClassName('delete-btn');
+    const editBtns = itemDataTable.getElementsByClassName('edit-item-btn');
+    const deleteBtns = itemDataTable.getElementsByClassName('delete-item-btn');
 
     Array.from(editBtns).forEach((editBtn, index) => {
         editBtn.addEventListener('click', function() {
@@ -245,21 +245,21 @@ function renderTable(data) {
 
 // Save table data to local storage
 function saveDataToLocalStorage() {
-    localStorage.setItem('tableData', JSON.stringify(tableData));
+    localStorage.setItem('itemTableData', JSON.stringify(itemTableData));
 }
 
 // Load table data from local storage
 function loadDataFromLocalStorage() {
-    const data = localStorage.getItem('tableData');
-    if (data) {
-        tableData = JSON.parse(data);
-        renderTable(tableData);
+    const data_item = localStorage.getItem('itemTableData');
+    if (data_item) {
+        itemTableData = JSON.parse(data_item);
+        renderTable(itemTableData);
     }
 }
 
 // Clear table data from local storage
 function clearLocalStorage() {
-    localStorage.removeItem('tableData');
+    localStorage.removeItem('itemTableData');
 }
 
 // Event listeners
@@ -273,7 +273,7 @@ searchBtn.addEventListener('click', function() {
     const searchText = searchBar.value;
     searchEntries(searchText);
 });
-saveTableBtn.addEventListener('click', saveDataToLocalStorage);
+saveBtn.addEventListener('click', saveDataToLocalStorage);
 
 // Load data from local storage on page load
 window.addEventListener('DOMContentLoaded', function() {

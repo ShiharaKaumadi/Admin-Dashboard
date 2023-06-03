@@ -12,7 +12,7 @@ const editCancelBtn = document.getElementById('editCancelBtn');
 const reloadBtn = document.getElementById('reloadBtn');
 const searchBar = document.getElementById('searchBar');
 const searchBtn = document.getElementById('searchBtn');
-const saveTableBtn = document.getElementById('saveTableBtn');
+const saveTableBtn = document.getElementById('saveBtn');
 
 // Initialize the table data array
 let tableData = [];
