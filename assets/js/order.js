@@ -49,12 +49,11 @@ function resetFormFields() {
 function addEntryToTable(entry) {
     const newRow = dataTable.insertRow();
     newRow.innerHTML = `
-                <td>${entry.id}</td>
-                <td>${entry.name}</td>
-                <td>${entry.email}</td>
-                <td>${entry.phone}</td>
-                <td>${entry.address}</td>
-                <td>${entry.salary}</td>
+                <td>${entry.orderId}</td>
+                <td>${entry.customerId}</td>
+                <td>${entry.date}</td>
+                <td>${entry.fkId}</td>
+              
                 <td>
                     <button class="edit-btn">Edit</button>
                     <button class="delete-btn">Delete</button>
@@ -77,30 +76,27 @@ function addEntryToTable(entry) {
 
 // Populate the edit form with entry data
 function populateEditForm(entry) {
-    document.getElementById('editIdInput').value = entry.id;
-    document.getElementById('editNameInput').value = entry.name;
-    document.getElementById('editEmailInput').value = entry.email;
-    document.getElementById('editPhoneInput').value = entry.phone;
-    document.getElementById('editAddressInput').value = entry.address;
-    document.getElementById('editSalaryInput').value = entry.salary;
+    document.getElementById('editOrderIdInput').value = entry.orderId;
+    document.getElementById('editCustomerIdInput').value = entry.customerId;
+    document.getElementById('editDateInput').value = entry.date;
+    document.getElementById('editFkInput').value = entry.fkId;
+
 }
 
 // Add a new entry
 function addEntry() {
-    const id = document.getElementById('idInput').value;
-    const name = document.getElementById('nameInput').value;
-    const email = document.getElementById('emailInput').value;
-    const phone = document.getElementById('phoneInput').value;
-    const address = document.getElementById('addressInput').value;
-    const salary = document.getElementById('salaryInput').value;
+    const orderId = document.getElementById('orderIdInput').value;
+    const customerId = document.getElementById('customerIdInput').value;
+    const date = document.getElementById('dateIdInput').value;
+    const fkId = document.getElementById('fkInput').value;
+
 
     const entry = {
-        id:id,
-        name: name,
-        email: email,
-        phone: phone,
-        address: address,
-        salary: salary
+        orderId: orderId,
+        customerId: customerId,
+        date: date,
+        fkId: fkId,
+
     };
 
     tableData.push(entry);
@@ -111,20 +107,17 @@ function addEntry() {
 
 // Save the updated entry
 function saveEntry() {
-    const id = document.getElementById('editIdInput').value;
-    const name = document.getElementById('editNameInput').value;
-    const email = document.getElementById('editEmailInput').value;
-    const phone = document.getElementById('editPhoneInput').value;
-    const address = document.getElementById('editAddressInput').value;
-    const salary = document.getElementById('editSalaryInput').value;
+    const orderId = document.getElementById('editOrderIdInput').value;
+    const customerId = document.getElementById('editCustomerIdInput').value;
+    const date = document.getElementById('editDateInput').value;
+    const fkId = document.getElementById('editFkInput').value;
+
 
     const updatedEntry = {
-        id: id,
-        name: name,
-        email: email,
-        phone: phone,
-        address: address,
-        salary: salary
+        orderId: orderId,
+        customerId: customerId,
+        date: date,
+        fkId: fkId,
     };
 
     const rowIndex = getSelectedRowIndex();
@@ -158,12 +151,11 @@ function updateTableRow(rowIndex, entry) {
     const row = dataTable.rows[rowIndex + 1];
     if (row) {
         row.innerHTML = `
-                    <td>${entry.id}</td>
-                    <td>${entry.name}</td>
-                    <td>${entry.email}</td>
-                    <td>${entry.phone}</td>
-                    <td>${entry.address}</td>
-                    <td>${entry.salary}</td>
+                    <td>${entry.orderId}</td>
+                    <td>${entry.customerId}</td>
+                    <td>${entry.date}</td>
+                    <td>${entry.fkId}</td>
+                   
                     <td>
                         <button class="edit-btn">Edit</button>
                         <button class="delete-btn">Delete</button>
@@ -193,12 +185,11 @@ function deleteTableRow(rowIndex) {
 // Search for entries based on search text
 function searchEntries(searchText) {
     const filteredData = tableData.filter(entry =>
-        entry.id.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.name.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.email.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.phone.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.address.toLowerCase().includes(searchText.toLowerCase()) ||
-        entry.salary.toLowerCase().includes(searchText.toLowerCase())
+        entry.orderId.toLowerCase().includes(searchText.toLowerCase()) ||
+        entry.customerId.toLowerCase().includes(searchText.toLowerCase()) ||
+        entry.date.toLowerCase().includes(searchText.toLowerCase()) ||
+        entry.fkId.toLowerCase().includes(searchText.toLowerCase())
+
     );
 
     renderTable(filteredData);
@@ -209,24 +200,21 @@ function renderTable(data) {
     dataTable.innerHTML = `
                 <thead>
                     <tr>
+                        <th>Order ID</th>
                         <th>Customer ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Salary</th>
+                        <th>Date</th>
+                        <th>Customer_ID</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     ${data.map(entry => `
                         <tr>
-                            <td>${entry.id}</td>
-                            <td>${entry.name}</td>
-                            <td>${entry.email}</td>
-                            <td>${entry.phone}</td>
-                            <td>${entry.address}</td>
-                            <td>${entry.salary}</td>
+                            <td>${entry.orderId}</td>
+                            <td>${entry.customerId}</td>
+                            <td>${entry.date}</td>
+                            <td>${entry.fkId}</td>
+                           
                             <td>
                                 <button class="edit-btn">Edit</button>
                                 <button class="delete-btn">Delete</button>

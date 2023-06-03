@@ -1,5 +1,5 @@
 // Get table and form elements
-const dataTable = document.getElementById('dataTable');
+const itemDataTable = document.getElementById('itemDataTable');
 const entryForm = document.getElementById('entryForm');
 const editEntryForm = document.getElementById('editEntryForm');
 const registerForm = document.getElementById('registerForm');
@@ -179,7 +179,7 @@ function updateTableRow(rowIndex, entry) {
 
 // Delete the table row
 function deleteTableRow(rowIndex) {
-    dataTable.deleteRow(rowIndex + 1);
+   dataTable.deleteRow(rowIndex + 1);
 }
 
 // Search for entries based on search text
