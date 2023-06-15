@@ -1,24 +1,26 @@
+
+
 // Get table and form elements
 const orderDataTable = document.getElementById('orderDataTable');
-const entryForm = document.getElementById('entryForm');
-const editEntryForm = document.getElementById('editEntryForm');
-const registerForm = document.getElementById('registerForm');
-const editForm = document.getElementById('editForm');
-const addBtn = document.getElementById('addBtn');
-const saveBtn = document.getElementById('saveBtn');
-const cancelBtn = document.getElementById('cancelBtn');
-const editSaveBtn = document.getElementById('editSaveBtn');
-const editCancelBtn = document.getElementById('editCancelBtn');
-const reloadBtn = document.getElementById('reloadBtn');
-const searchBar = document.getElementById('searchBar');
-const searchBtn = document.getElementById('searchBtn');
-const saveTableBtn = document.getElementById('saveBtn');
+const entryForm = document.getElementById('search-order-form');
+const editEntryForm = document.getElementById('order-editEntryForm');
+const registerForm = document.getElementById('entry-order-form');
+const editForm = document.getElementById('order-editForm');
+const addBtn = document.getElementById('order-addBtn');
+const saveBtn = document.getElementById('order-saveBtn');
+const cancelBtn = document.getElementById('order-cancelBtn');
+const editSaveBtn = document.getElementById('order-editSaveBtn');
+const editCancelBtn = document.getElementById('order-editCancelBtn');
+const reloadBtn = document.getElementById('orderReloadBtn');
+const searchBar = document.getElementById('search-order-button');
+const searchBtn = document.getElementById('orderSearchBtn');
+const saveTableBtn = document.getElementById('order-saveBtn');
 
 // Initialize the table data array
 let orderTableData = [];
 
 // Show the register form
-function showRegisterForm() {
+/*function showRegisterForm() {
     registerForm.style.display = 'block';
 }
 
@@ -42,8 +44,8 @@ function hideEditForm() {
 // Reset the form fields
 function resetFormFields() {
     entryForm.reset();
-    editEntryForm.reset();
-}
+
+}*/
 
 // Add a new entry to the table
 function addEntryToTable(entry) {
@@ -55,18 +57,18 @@ function addEntryToTable(entry) {
                 <td>${entry.fkId}</td>
               
                 <td>
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button>
+                    <button class="edit-order-btn">Edit</button>
+                    <button class="delete-order-btn">Delete</button>
                 </td>
             `;
 
-    const editBtn = newRow.querySelector('.edit-btn');
+    const editBtn = newRow.querySelector('.edit-order-btn');
     editBtn.addEventListener('click', function() {
         showEditForm();
         populateEditForm(entry);
     });
 
-    const deleteBtn = newRow.querySelector('.delete-btn');
+    const deleteBtn = newRow.querySelector('.delete-order-btn');
     deleteBtn.addEventListener('click', function() {
         if (confirm('Are you sure you want to delete this record?')) {
             deleteEntry(entry);
@@ -245,7 +247,7 @@ function renderTable(data) {
 
 // Save table data to local storage
 function saveDataToLocalStorage() {
-    localStorage.setItem('tableData', JSON.stringify(orderTableData));
+    localStorage.setItem('orderTableData', JSON.stringify(orderTableData));
 }
 
 // Load table data from local storage

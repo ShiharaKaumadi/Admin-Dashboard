@@ -1,8 +1,13 @@
-//SIDEBAR TOGGLE
 var sidebarOpen =false;/*set a variable called sidebarOpen and default set to false*/
- /*In order to open and clos ethe side ba w need to give access to html element */
+/*In order to open and clos ethe side ba w need to give access to html element */
 var sidebar=document.getElementById("sidebar"); /*js use DOM model we can use it to directly manipulate dom element
 by this js can refernce to the html element through the id called sidebar*/
+
+
+/*var searchOrderForm =false;/!*set a variable called sidebarOpen and default set to false*!/
+/!*In order to open and clos ethe side ba w need to give access to html element *!/
+var searchForm=document.getElementById("sidebar"); /!*js use DOM model we can use it to directly manipulate dom element
+by this js can refernce to the html element through the id called sidebar*!/*/
 
 /*Define the opensidebar function*/
 function openSideBar(){
@@ -15,6 +20,7 @@ function openSideBar(){
 }
 
 function closeSidebar(){
+
     /* This function is used to close a
     sidebar by removing a CSS class and updating a boolean variable.*/
     if (sidebarOpen){/*It checks if the variable sidebarOpen is true.*/
@@ -24,40 +30,15 @@ function closeSidebar(){
     }
 }
 
-/*charts
-bar chart*/
-// SIDEBAR TOGGLE
 
-var sidebarOpen = false;
-var sidebar = document.getElementById("sidebar");
-
-function openSidebar() {
-    if(!sidebarOpen) {
-        sidebar.classList.add("sidebar-responsive");
-        sidebarOpen = true;
-    }
-}
-
-function closeSidebar() {
-    if(sidebarOpen) {
-        sidebar.classList.remove("sidebar-responsive");
-        sidebarOpen = false;
-    }
-}
-
-
-
-// ---------- CHARTS ----------
-
-// BAR CHART
+// Bar Chart
 var barChartOptions = {
     series: [{
-        data: [20000,30000,50000,15000,25000,41000,12000,19000,20000,45000,25000,30000],
+        data: [20000, 30000, 50000, 15000, 25000, 41000, 12000, 19000, 20000, 45000, 25000, 30000],
         name: "Income",
     }],
     chart: {
         type: "bar",
-        background: "transparent",
         height: 250,
         toolbar: {
             show: false,
@@ -115,7 +96,7 @@ var barChartOptions = {
         theme: "dark",
     },
     xaxis: {
-        categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         title: {
             style: {
                 color: "#f5f7ff",
@@ -139,7 +120,7 @@ var barChartOptions = {
         title: {
             text: "Income",
             style: {
-                color:  "#656669",
+                color: "#656669",
             },
         },
         axisBorder: {
@@ -161,19 +142,17 @@ var barChartOptions = {
 var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
 barChart.render();
 
-
-// AREA CHART
+// Area Chart
 var areaChartOptions = {
     series: [{
         name: "Purchase Orders",
-        data: [31, 40, 28, 51, 42, 109, 100,40,50,70,60,30],
+        data: [31, 40, 28, 51, 42, 109, 100, 40, 50, 70, 60, 30],
     }, {
         name: "Sales Orders",
-        data: [11, 32, 45, 32, 34, 52, 41,52,36,63,50,40],
+        data: [11, 32, 45, 32, 34, 52, 41, 52, 36, 63, 50, 40],
     }],
     chart: {
         type: "area",
-        background: "transparent",
         height: 250,
         stacked: false,
         toolbar: {
@@ -181,7 +160,7 @@ var areaChartOptions = {
         },
     },
     colors: ["#819cc7", "#123c85"],
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug","Sep","Oct","Nov","Dec"],
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     dataLabels: {
         enabled: false,
     },
@@ -217,13 +196,41 @@ var areaChartOptions = {
     },
     markers: {
         size: 6,
-        strokeColors: "#1b2635",
-        strokeWidth: 3,
+        strokeColors: "#ffffff",
+        strokeWidth: 2,
+        colors: ["#819cc7", "#123c85"],
+        strokeOpacity: 0.9,
+        strokeWidth: 2,
+        hover: {
+            size: 8,
+        }
     },
     stroke: {
-        curve: "smooth",
+        colors: ["#819cc7", "#123c85"],
+        show: true,
+        width: 2
+    },
+    tooltip: {
+        shared: true,
+        intersect: false,
+        theme: "dark",
     },
     xaxis: {
+        axisBorder: {
+            show: true,
+            color: "#656669",
+        },
+        axisTicks: {
+            show: true,
+            color: "#55596e",
+        },
+        labels: {
+            style: {
+                colors: "#656669",
+            },
+        },
+    },
+    yaxis: {
         axisBorder: {
             color: "#55596e",
             show: true,
@@ -233,46 +240,10 @@ var areaChartOptions = {
             show: true,
         },
         labels: {
-            offsetY: 5,
             style: {
                 colors: "#656669",
             },
         },
-    },
-    yaxis:
-        [
-            {
-                title: {
-                    text: "Purchase Orders",
-                    style: {
-                        color: "#656669",
-                    },
-                },
-                labels: {
-                    style: {
-                        colors: ["#656669"],
-                    },
-                },
-            },
-            {
-                opposite: true,
-                title: {
-                    text: "Sales Orders",
-                    style: {
-                        color:  "#656669",
-                    },
-                },
-                labels: {
-                    style: {
-                        colors: ["#656669"],
-                    },
-                },
-            },
-        ],
-    tooltip: {
-        shared: true,
-        intersect: false,
-        theme: "dark",
     }
 };
 

@@ -1,0 +1,162 @@
+form {
+    top:90px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 30px;
+
+}
+
+input[type="text"], input[type="date"],
+textarea {
+    width:1fr;
+    height: 30px;
+    padding: 9px;
+    border: 1px solid blue;
+}
+
+#customer-salary {
+    width: 1fr;
+    padding: 9px;
+}
+
+#customer-salary,
+#order-id,
+#customer-id {
+    text-transform: uppercase;
+    padding:9px;
+}
+
+#order-id,
+#customer-id {
+    width: 1fr;
+    padding:9px;
+
+}
+
+label {
+    display: block;
+    padding:9px;
+    color:black;
+    font-size: 13px;
+}
+
+#customer-name {
+    width: 1fr;
+
+}
+
+#customer-address {
+    height: 50px;
+    resize: none;
+    padding:9px;
+}
+
+#order-date {
+    width: 1fr;
+    padding:9px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group + .form-group {
+    margin-top: 10px;
+}
+
+.form-group + .form-group label {
+    margin-top: 10px;
+
+}
+
+.add-to-cart{
+    width:130px;
+    height:45px;
+    margin-top: 28px;
+    margin-right: 42px;
+    left:10px;
+    padding:10px;
+    background-color: #5b7fd7;
+    border-radius: 10px;
+    border: none;
+
+}
+#place-order{
+    width:130px;
+    height:45px;
+    margin-top:28px;
+    margin-right: 42px;
+    left:10px;
+    padding:10px;
+    background-color: #5b7fd7;
+    border-radius: 10px;
+    border: none;
+}
+
+.clear  {
+    width:130px;
+    height:45px;
+    margin-top: 28px;
+    margin-right: 10px;
+    right:10px;
+    padding:10px;
+    background-color: #f54760;
+    border-radius: 10px;
+    border: none;
+}
+
+#cancel{
+    width:130px;
+    height:45px;
+    margin-top: 28px;
+    margin-right: 10px;
+    right:10px;
+    padding:10px;
+    background-color: #f54760;
+    border-radius: 10px;
+    border: none;
+}
+
+#search-order-form{
+    display: none;
+    margin-top: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 375px;
+    height: 500px;
+    padding: 10px;
+    background-color: #fff;
+    border: 2px solid #9bb1e7;
+    box-shadow: 0 0 10px rgba(206, 201, 201, 0.2);
+    z-index: 9999;
+    color:black;
+}
+
+
+
+#search-order-Btn{
+    margin-left: 5px;
+    background-color: #70a0ea;
+    color:white;
+    margin-right: 5px;
+    border-radius: 5px;
+    border:none;
+}
+
+#clear-search-bar{
+    background-color: #ec70a7;
+    color:white;
+    margin-right: 5px;
+    border-radius: 5px;
+    border:none;
+}
+
+#entry-order-form{
+    border:none;
+}
+#close{
+    display: inline-block;
+
+}

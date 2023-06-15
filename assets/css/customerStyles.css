@@ -123,11 +123,16 @@ body{
 .sidebar-list-item{
     padding: 20px 20px 20px 20px;
     font-size: 18px;
+    text-decoration: none;
 }
 
 .sidebar-list-item:hover{
     background-color: rgba(255,255,255,0.2);
     cursor: pointer;
+    text-decoration: none;
+}
+.sidebar-list-item:hover > a {
+    text-decoration: none;
 }
 .sidebar-list-item>a{
     text-decoration: none;
@@ -376,6 +381,7 @@ body{
     padding: 0;
     margin-top:20px ;
     list-style-type: none;
+    text-decoration: none;
 
 }
 
@@ -386,11 +392,17 @@ body{
 
 .sidebar-list-item:hover{
     background-color: rgba(255,255,255,0.2);
-    cursor: pointer;
+    text-decoration: none;
+
 }
+.sidebar-list-item:hover > a {
+    text-decoration: none;
+}
+
 .sidebar-list-item>a{
     text-decoration: none;
     color: white;
+    cursor: pointer;
 }
 .sidebar-responsive{
     display: inline !important;
@@ -415,7 +427,7 @@ body{
     width:450px;
     align-items:self-end ;
 }
-.register-form, .edit-form {
+.register-form, .edit-form{
     display: none;
     position: fixed;
     top: 50%;
@@ -444,7 +456,7 @@ body{
     display: grid;
     justify-content: space-between;
 }
-.edit-btn {
+.edit-btn,.edit-item-btn,.edit-order-btn {
     background-color: #82a3c9;
     color: #fff;
     border: none;
@@ -453,7 +465,8 @@ body{
     margin-right: 5px;
 }
 
-.delete-btn {
+
+.delete-btn,.delete-item-btn,.delete-order-btn {
     background-color: #e09299;
     color: #fff;
     border: none;
@@ -462,7 +475,9 @@ body{
 
 }
 
-#reloadBtn{
+
+
+#reloadBtn,#reload-item-Btn,#orderReloadBtn{
     background-color: #7891d0;
     color: #fff;
     border: none;
@@ -471,7 +486,8 @@ body{
     margin:5px;
 }
 
-#searchBtn{
+
+#searchBtn,#search-item-Btn,#orderSearchBtn{
     background-color: #26a3d0;
     color: #fff;
     border: none;
@@ -480,13 +496,13 @@ body{
     margin: 5px;
 }
 
-#searchBar{
+#searchBar, #search-item-Bar,#orderSearchBar{
     width: 450px;
     height: 40px;
     border-radius: 10px;
 }
 
-#addBtn{
+#addBtn,#add-item-button,#order-addBtn{
     background-color: #26a3d0;
     color: #fff;
     border: none;
@@ -494,6 +510,7 @@ body{
     cursor: pointer;
     margin: 5px;
 }
+
 
 @media screen and (max-width: 992px) {
     .grid-container {

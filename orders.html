@@ -4,31 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Google fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
-    <!--Material Icons-->
+
+    <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <link rel="stylesheet" href="assets/bootstrap-5.3.0-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="assets/css/customerStyles.css">
-    <title> Budget Corner</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/orderStyles.css">
+
 
 </head>
-
 <body>
-<!--Structure of web page-->
 <div class="grid-container">
-
-    <!--Header-->
     <header class="header">
-        <!--I want to have menu icon on left and close icon on right when the wep page only load on small screens-->
-        <!--When someone clicks on the menu icon i want to open the
-        side bar so use onclick attribute call the js function called opensidebar()-->
-        <!--In the header section some of elements are on left others are on right-->
         <div class="menu-icon" onclick="openSideBar()">
             <span class="material-symbols-outlined">menu</span>
         </div>
@@ -39,12 +33,10 @@
             <span class="material-symbols-outlined">notifications</span>
             <span class="material-symbols-outlined">mail</span>
             <span class="material-symbols-outlined">account_circle</span>
-
         </div>
     </header>
-    <!--End Header-->
 
-    <!--Side bar-->
+    <!-- Side bar -->
     <aside id="sidebar">
         <div class="sidebar-title">
             <div class="sidebar-brand">
@@ -52,114 +44,302 @@
             </div>
             <span class="material-symbols-outlined" onclick="closeSidebar()">close</span>
         </div>
-        <ul class="sidebar-list">
-            <a href="index.html"><li class="sidebar-list-item">
-                <span class="material-symbols-outlined">dashboard</span> Dashboard
-            </li></a>
-            <a href="customer.html"><li class="sidebar-list-item">
-                <span class="material-symbols-outlined">person</span> Customer
-            </li></a>
-            <a href="item.html"><li class="sidebar-list-item">
-                <span class="material-symbols-outlined">shelves</span> Items
-            </li></a>
-            <a href="orders.html"><li class="sidebar-list-item">
-                <span class="material-symbols-outlined">list</span> Orders
-            </li></a>
-            <li class="sidebar-list-item">
-                <span class="material-symbols-outlined">settings</span> Settings
-            </li>
+        <ul class="sidebar-list" style="text-decoration: none;">
+            <a href="index.html" style="text-decoration: none;">
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">dashboard</span> Dashboard
+                </li>
+            </a>
+            <a href="customer.html" style="text-decoration: none;">
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">person</span> Customer
+                </li>
+            </a>
+            <a href="item.html" style="text-decoration: none;">
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">shelves</span> Items
+                </li>
+            </a>
+            <a href="orders.html" style="text-decoration: none;">
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">list</span> Orders
+                </li>
+            </a>
+
         </ul>
-
     </aside>
-    <!--End Side bar -->
+    <!-- End Side bar -->
+
     <main class="main-container">
-        <div class="main-title">
-            <h2>ORDERS</h2>
-        </div>
         <div class="container">
-            <h2>Order Table</h2>
-            <div class="add-button">
-                <button id="addBtn" class="btn btn-primary">Add New Order</button>
-            </div>
-            <div class="search-bar">
-                <div class="d-flex justify-content-end">
-                    <input id="searchBar" type="text" class="form-control search-input" placeholder="Search...">
-                    <button id="searchBtn" class="btn btn-primary">Search</button>
-                    <button id="reloadBtn" class="btn btn-secondary">Reload</button>
+            <div class="row">
+                <div class="col-12">
+                    <div class="main-title" style="font-size: 20px;color:#4d5154;" >
+                        <h2>PLACE ORDER</h2>
+                    </div>
+                    <div class="search-order-button">
+                        <button id="search-order-button" class="btn btn-primary" style="width:180px; height: 45px; top:68px; position: absolute; display:grid; right:20px;" onclick="showRegisterForm()">Serach Order</button>
+                    </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" >
+                    <h2 style="color:#373b3e; font-size: 18px;top:35px;padding-top: 10px;">Invoice</h2>
+                    <form id="invoice">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="order-id">Order ID</label>
+                                    <input type="text" class="form-control" id="order-id" placeholder="O001">
+                                </div>
+                                <div class="form-group">
+                                    <label for="order-date">Order Date</label>
+                                    <input type="date" class="form-control" id="order-date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="customer-id">Customer ID</label>
+                                    <input type="text" class="form-control" id="customer-id" placeholder="C001">
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-name">Customer Name</label>
+                                    <input type="text" class="form-control" id="customer-name" placeholder="Eshani">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-address">Customer Address</label>
+                            <textarea type="text" class="form-control" id="customer-address" placeholder="Galle Road, Panadura"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-salary">Customer Salary</label>
+                            <input type="text" class="form-control" id="customer-salary" placeholder="25000">
+                        </div>
+                    </form>
 
-            <table id="orderDataTable" class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer ID</th>
-                    <th>Date</th>
-                    <th>Customer_ID</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!-- Table rows will be dynamically added here -->
-                </tbody>
-            </table>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 style="color:#373b3e; font-size: 18px; top:35px; padding-top: 10px;">Items</h2>
+                    <form id="items">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="item-code">Item Code</label>
+                                    <input type="text" class="form-control" id="item-code" placeholder="O001">
+                                </div>
+                                <div class="form-group">
+                                    <label for="item-name">Item Name</label>
+                                    <input type="text" class="form-control" id="item-name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="unit-price">Unit Price</label>
+                                    <input type="number" class="form-control" id="unit-price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qty-on-hand">Qty On Hand</label>
+                                    <input type="number" class="form-control" id="qty-on-hand">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="qty">Qty</label>
+                            <input type="number" class="form-control" id="qty">
+                        </div>
+                        <div>
+                            <button type="button" class="add-to-cart" style="color: #fff;">Add to Cart</button>
+                            <button type="reset" class="clear" style=" color: #fff;">Clear</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 style="color:#373b3e; font-size: 18px;top:35px;padding-top: 10px;">Payment</h2>
+                    <form id="payment">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="total">Total</label>
+                                    <input type="text" class="form-control" id="total">
+                                </div>
+                                <div class="form-group">
+                                    <label for="no-items">No. Items</label>
+                                    <input type="text" class="form-control" id="no-items">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="cash">Cash</label>
+                                    <input type="text" class="form-control" id="cash">
+                                </div>
+                                <div class="form-group">
+                                    <label for="balance">Balance</label>
+                                    <input type="text" class="form-control" id="balance">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="button" id="place-order" style="color: #fff;" value="Place Order">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="button" id="cancel" style="color: #fff;"  value="Cancel">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <h2 style="color:#373b3e; font-size: 18px;top:35px;padding-top: 20px;margin-top: 20px;">Cart Details</h2>
+                        <table id="orderTableData" class="table table-striped" style="padding: 30px 30px 30px 30px;">
+                            <thead>
+                            <tr>
+                                <th>Item Code</th>
+                                <th>Name</th>
+                                <th>Unit Price</th>
+                                <th>Qty</th>
+                                <th>total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Table rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div id="search-order-form" class="register-form py-3">
+            <div>
+                <h3 style="display: inline-block;">Search Order</h3>
+                <span class="material-symbols-outlined" id="close" onclick="closeOrderForm()" style="float: right;display: inline-block;">close</span>
+            </div>
 
-        <div id="registerForm" class="register-form">
-            <h3>Add New Order</h3>
-            <form id="entryForm">
-                <div class="mb-3">
-                    <label for="orderIdInput" class="form-label">Order ID</label>
-                    <input id="orderIdInput" type="text" class="form-control" required>
+            <form id="entry-order-form">
+                <div class="row">
+                    <div class="col-12">
+                <div class="search-bar">
+                    <div class="d-flex justify-content-end">
+                        <input id="search-order-Bar" type="text" class="form-control search-input" placeholder="Search...">
+                        <button id="search-order-Btn" >Search</button>
+                        <button id="clear-search-bar">Clear</button>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="customerIdInput" class="form-label">Customer ID</label>
-                    <input id="customerIdInput" type="text" class="form-control" required>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="dateInput" class="form-label">Date</label>
-                    <input id="dateInput" type="date" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="fkInput" class="form-label">Customer_ID</label>
-                    <input id="fkInput" type="text" class="form-control" required>
-                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <h2 style="color:#373b3e; font-size: 18px;">Orders</h2>
 
-                <div class="d-flex justify-content-between">
-                    <button id="saveBtn" class="btn btn-primary">Save</button>
-                    <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                            <table id="order-table-data" class="table table-striped" style="padding: 30px 30px 30px 30px;margin-bottom: 60px;">
+                                <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Order Date</th>
+                                    <th>Customer ID</th>
+                                    <th>total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Table rows will be dynamically added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
-
-        <div id="editForm" class="edit-form">
-            <h3>Edit Entry</h3>
-            <form id="editEntryForm">
-                <div class="mb-3">
-                    <label for="editOrderIdInput" class="form-label">Order ID</label>
-                    <input id="editOrderIdInput" type="text" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="editCustomerIdInput" class="form-label">Customer ID</label>
-                    <input id="editCustomerIdInput" type="text" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="editDateInput" class="form-label">Date</label>
-                    <input id="editDateInput" type="date" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="editFkInput" class="form-label">Customer_ID</label>
-                    <input id="editFkInput" type="text" class="form-control" required>
-                </div>
-
-                <div class="d-flex justify-content-between">
-                    <button id="editSaveBtn" class="btn btn-primary">Save</button>
-                    <button id="editCancelBtn" class="btn btn-secondary">Cancel</button>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <h2 style="color:#373b3e; font-size: 18px;top:50px;">Order Detail</h2>
+                            <table id="order-detail-table" class="table table-striped" style="padding: 30px 30px 30px 30px;">
+                                <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Item Code</th>
+                                    <th>Item Name</th>
+                                    <th>Unit Price</th>
+                                    <th>Qty</th>
+                                    <th>Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Table rows will be dynamically added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
     </main>
 </div>
+
+<!-- Bootstrap 5 JS Bundle (popper.js included) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script>
+    var sidebarOpen =false;/*set a variable called sidebarOpen and default set to false*/
+    /*In order to open and clos ethe side ba w need to give access to html element */
+    var sidebar=document.getElementById("sidebar"); /*js use DOM model we can use it to directly manipulate dom element
+by this js can refernce to the html element through the id called sidebar*/
+
+    /*Define the opensidebar function*/
+    function openSideBar(){
+        /*mention the arguments*/
+        if (!sidebarOpen){
+            /*check whether the side bar is currently open or not*/
+            sidebar.classList.add("sidebar-responsive");
+            sidebarOpen=true; /*If the sidebar is closed tell it to set the sidebarOpen into false*/
+        }
+    }
+
+    function closeSidebar(){
+        /* This function is used to close a
+        sidebar by removing a CSS class and updating a boolean variable.*/
+        if (sidebarOpen){/*It checks if the variable sidebarOpen is true.*/
+            sidebar.classList.remove("sidebar-responsive");/*It uses the classList.remove() method
+          to remove the CSS class "sidebar-responsive" from the sidebar element..*/
+            sidebarOpen=false;/*It updates the sidebarOpen variable to false.*/
+        }
+    }
+
+
+    // Add an event listener to the search order button
+    var searchOrderButton = document.getElementById("search-order-button");
+    searchOrderButton.addEventListener("click", displaySearchOrderForm);
+    var searchOrderForm = document.getElementById("search-order-form");
+
+
+    // Add an event listener to the search order button
+    var closeButton = document.getElementById("close");
+    closeButton.addEventListener("click", closeOrderForm);
+
+
+    function displaySearchOrderForm() {
+        searchOrderForm.style.display = "block";
+    }
+
+
+
+    function closeOrderForm(){
+        searchOrderForm.style.display = 'none';
+        resetFormFields();
+
+
+    }
+    function resetFormFields() {
+        searchOrderForm.reset();
+
+    }
+</script>
+<!-- Custom JS -->
 <script src="assets/js/order.js"></script>
+
 </body>
 </html>
